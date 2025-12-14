@@ -304,7 +304,7 @@ def register_routes(app: Flask) -> None:
                 )
                 new_page.posts.append(post)
 
-            s
+            
             logger.info(f"👥 Adding {len(scraped.get('employees', []))} employees")
             for idx, emp_data in enumerate(scraped.get("employees", [])[:50]):
                 employee = Employee(
