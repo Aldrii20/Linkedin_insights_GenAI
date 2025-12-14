@@ -1,0 +1,10 @@
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+Flask-CORS==4.0.0
+Selenium==4.13.0
+beautifulsoup4==4.12.2
+lxml==4.9.3
+requests==2.31.0
+python-dotenv==1.0.0
+groq==0.4.2
+SQLAlchemy==2.0.21

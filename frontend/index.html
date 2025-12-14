@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Insights - Company Analytics</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>LinkedIn Insights</h1>
+                <p>Scrape and analyze LinkedIn company pages with AI-powered summaries</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Input Section -->
+            <section class="input-section">
+                <h2>Enter LinkedIn Company URL</h2>
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="linkedinUrl" 
+                        placeholder="e.g., https://linkedin.com/company/deepsolv or just deepsolv"
+                        class="input-field"
+                    >
+                    <button id="scrapeBtn" class="btn btn-primary">
+                        <span class="btn-text">Scrape & Analyze</span>
+                        <span class="spinner" style="display:none;"></span>
+                    </button>
+                </div>
+                <p class="help-text"> Tip: Paste a LinkedIn company URL or just the company ID</p>
+            </section>
+
+            <!-- Messages -->
+            <div id="errorMessage" class="alert alert-error" style="display:none;"></div>
+            <div id="successMessage" class="alert alert-success" style="display:none;"></div>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section" style="display:none;">
+                
+                <!-- Company Card -->
+                <div class="company-card">
+                    <div class="company-header">
+                        <div class="company-image">
+                            <img id="companyImage" src="" alt="Company Logo" onerror="this.style.display='none'">
+                            <div id="noImage" class="no-image"></div>
+                        </div>
+                        <div class="company-info">
+                            <h2 id="companyName"></h2>
+                            <p id="companyIndustry" class="industry-badge"></p>
+                            <a id="companyUrl" href="" target="_blank" class="company-url"></a>
+                        </div>
+                    </div>
+
+                    <!-- Company Details -->
+                    <div class="company-details">
+                        <div class="detail-row">
+                            <div class="detail-item">
+                                <span class="detail-label"> Followers</span>
+                                <span id="followers" class="detail-value">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label"> Employees</span>
+                                <span id="employees" class="detail-value">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label"> Posts</span>
+                                <span id="postsCount" class="detail-value">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="company-section">
+                        <h3> About</h3>
+                        <p id="companyDescription" class="description-text"></p>
+                    </div>
+
+                    <!-- AI Summary -->
+                    <div class="company-section">
+                        <h3>     AI Summary</h3>
+                        <div id="summaryLoading" class="loading" style="display:none;">
+                            <div class="spinner-small"></div>
+                            <span>Generating AI summary...</span>
+                        </div>
+                        <p id="companySummary" class="summary-text"></p>
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="posts"> Posts</button>
+                        <button class="tab-btn" data-tab="employees"> Team Members</button>
+                        <button class="tab-btn" data-tab="metadata">     Details</button>
+                    </div>
+
+                    <!-- Posts Tab -->
+                    <div id="postsTab" class="tab-content active">
+                        <div id="postsList" class="posts-list"></div>
+                    </div>
+
+                    <!-- Employees Tab -->
+                    <div id="employeesTab" class="tab-content">
+                        <div id="employeesList" class="employees-list"></div>
+                    </div>
+
+                    <!-- Metadata Tab -->
+                    <div id="metadataTab" class="tab-content">
+                        <div id="metadataContainer" class="metadata-grid"></div>
+                    </div>
+                </div>
+
+                
+                <section class="search-section" style="margin-top: 40px;">
+                    <h2> Search Scraped Pages</h2>
+                    <div class="search-controls">
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Search by company name..."
+                            class="input-field"
+                        >
+                        <button id="searchBtn" class="btn btn-secondary">Search</button>
+                    </div>
+                    
+                    <div id="searchResults" style="display:none; margin-top: 20px;">
+                        <h3>Search Results</h3>
+                        <div id="resultsList" class="results-list"></div>
+                    </div>
+                </section>
+
+            </section>
+
+        </main>
+
+        
+        <footer class="footer">
+            <p>LinkedIn Insights Microservice | Powered by Selenium & AI</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js?v=4"></script>
+</body>
+</html>
